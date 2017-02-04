@@ -1,3 +1,7 @@
+/*
+score: 8.5 + 1(extra credit)
+Your coding is good, just be careful with corner case
+*/
 package assignment2;
 
 /**
@@ -50,7 +54,7 @@ public class Assignment2 {
      * If the salary is less than or equal to 8900, the Social Security Tax is 6.2% of the salary.
      * If the salary is more than 8900, the Social Security Tax is 6.2% of 106,800.
      */
-    public double socialSecurityTax(Employee employee) {
+    public double socialSecurityTax(Employee employee) {                               //correct
         if(employee == null) return -1.0;
         return (employee.salary <= 8900 ? employee.salary : 106800) / 100 * 6.2;
     }
@@ -61,7 +65,7 @@ public class Assignment2 {
      * If the employee is under 35, rate is 3% of salary; if the employee is between 35 and 50(inclusive), rate is 4% of salary;
      * If the employee is between 50 and 60(exclusive), rate is 5% of salary; If the employee is above 60, rate is 6% of salary.
      */
-    public double insuranceCoverage(Employee employee) {
+    public double insuranceCoverage(Employee employee) {                          //correct
         if(employee == null) return -1.0;
         int age = employee.age;
         double rate = 0;
@@ -82,7 +86,7 @@ public class Assignment2 {
      * For example, Alice's salary is 1000, John's salary is 500, Jenny's salary is 1200, you should print:
      * John Alice Jenny
      */
-    public void sortSalary(Employee e1, Employee e2, Employee e3) {
+    public void sortSalary(Employee e1, Employee e2, Employee e3) {                 //excellent!
         if(e1 == null || e2 == null || e3 == null) return;
         Double max = 0.0;
         Employee[] es = {e1, e2, e3}; 
@@ -103,7 +107,7 @@ public class Assignment2 {
      * Do not change the input of this method.
      * Try to add a new method in Employee class: public void raiseSalary(double byPercent)
      */
-    public void tripleSalary(Employee employee) {
+    public void tripleSalary(Employee employee) {                     //correct
         if(employee != null) employee.salary *= 3;     
     }
     
@@ -114,7 +118,7 @@ public class Assignment2 {
     /**
      * Write a method to determine whether a number is prime
      */
-    public boolean isPrime(int n) {
+    public boolean isPrime(int n) {                                    //excellent!
         if(n <= 1) return false;
         if(n <= 3) return true;
         int i = 2;
@@ -127,7 +131,7 @@ public class Assignment2 {
      * result has only one digit. For example: Given n = 38, the process is
      * like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one digit, return it.
      */
-    public int addDigits(int n) {
+    public int addDigits(int n) {                     //wrong: if n is 19, expected answer is 1, your output is 10.
         if(n < 0) return -1;
         int sum = 0;
         while(n > 0) {
@@ -144,7 +148,7 @@ public class Assignment2 {
      * another prime factor 7. Note that 1 is typically treated as an ugly
      * number.
      */
-    public boolean isUgly(int n) {
+    public boolean isUgly(int n) {                   //miss one corner case: if n is 1, expected return is true, your input is false
         if(n <= 1) return false;
         while(n > 1 && n % 2 == 0) {n /= 2;}
         while(n > 1 && n % 3 == 0) {n /= 3;}
@@ -168,7 +172,7 @@ public class Assignment2 {
      write your understanding here.
         It is because Java is call-by-value instead of call-by-reference. The parameters are not addresses while they are just some copy of references.
     */
-    public static void main(String[] args) {
+    public static void main(String[] args) {                                                                       //correct
         Employee a = new Employee("Jenny", 20, Gender.FEMALE, 2000);
         Employee b = new Employee("John", 30, Gender.MALE, 2500);
         System.out.println("Before: a=" + a.getName());
